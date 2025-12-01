@@ -1,0 +1,199 @@
+/* Layout general */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1f2933;
+  background: #f4f2fb; /* violeta muy tenue */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.site-header {
+  padding: 18px 16px 10px;
+  text-align: center;
+  background: #f0ecff;
+  border-bottom: 1px solid #ddd6fe;
+}
+
+.site-header-inner h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #4c1d95; /* violeta sobrio */
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  color: #6b628a;
+}
+
+/* Contenido principal */
+.container {
+  max-width: 960px;
+  width: 100%;
+  margin: 24px auto 32px;
+  padding: 0 16px;
+}
+
+/* Paneles principales */
+.panel {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px 18px 20px;
+  border: 1px solid #e5e0ff;
+  text-align: center;
+}
+
+.panel + .panel {
+  margin-top: 16px;
+}
+
+.panel-text {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  color: #4b4b65;
+}
+
+.panel-subtitle {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  color: #4c1d95;
+}
+
+/* Formulario */
+.form-anomalias {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+/* Fila de upload */
+.upload-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón de seleccionar archivo */
+.file-upload {
+  background: #e0dbff;
+  color: #3c366b;
+  padding: 9px 18px;
+  border-radius: 999px;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid #c7bef9;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.file-upload:hover {
+  background: #d4ccff;
+  border-color: #b5a8ff;
+}
+
+/* Nombre de archivo */
+.file-name {
+  font-size: 0.85rem;
+  color: #6b6a8a;
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Botones */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: #6d5bbf;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #5b4aa8;
+}
+
+.btn-secondary {
+  background: #e4def9;
+  color: #3f365f;
+}
+
+.btn-secondary:hover {
+  background: #d8cff8;
+}
+
+/* Botón deshabilitado */
+.btn[disabled],
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Mensaje de estado */
+.mensaje-estado {
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: #433878;
+}
+
+/* Tabla / DataTables */
+.panel-table {
+  text-align: left;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+#tabla-resultados {
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 10px 16px 16px;
+  font-size: 0.8rem;
+  color: #6b6a8a;
+  border-top: 1px solid #e5defb;
+}
+
+/* SweetAlert loader (solo el spinner nativo, no extra) */
+/* Ya no necesitamos .spinner, lo quitamos para evitar “doble ruedita” */

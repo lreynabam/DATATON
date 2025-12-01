@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Prototipo para el análisis de la evaluación patrimonial</title>
+
+  <!-- Tu CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
+  <!-- jQuery (requerido por DataTables) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <h1>Prototipo para el análisis de la evaluación patrimonial</h1>
+      <p class="subtitle">Carga el archivo JSON y analiza posibles anomalías.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <p class="panel-text">Sube tu archivo <strong>JSON</strong>:</p>
+
+      <form id="form-anomalias" class="form-anomalias">
+        <div class="upload-row">
+          <!-- Input real -->
+          <input type="file" id="archivo-json" accept=".json,application/json" hidden>
+
+          <!-- Botón bonito -->
+          <label for="archivo-json" class="file-upload">Seleccionar archivo</label>
+          <span id="file-name" class="file-name">No se ha seleccionado ningún archivo</span>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="btn-analizar" class="btn btn-primary">
+            Analizar
+          </button>
+
+          <button type="button" id="btn-descargar" class="btn btn-secondary" disabled>
+            Descargar JSON completo
+          </button>
+        </div>
+
+        <h2 class="panel-subtitle">El algoritmo ha detectado los siguientes patrones anómalos:</h2>
+      </form>
+
+      <div id="mensaje" class="mensaje-estado"></div>
+    </section>
+
+    <section class="panel panel-table">
+      <div class="table-wrapper">
+        <table id="tabla-resultados" class="display" style="width:100%"></table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Prototipo de uso interno · Evaluación patrimonial</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+  <script>
+    // Mostrar nombre de archivo seleccionado
+    const inputArchivo = document.getElementById("archivo-json");
+    const fileNameSpan = document.getElementById("file-name");
+
+    if (inputArchivo && fileNameSpan) {
+      inputArchivo.addEventListener("change", () => {
+        const file = inputArchivo.files[0];
+        fileNameSpan.textContent = file ? file.name : "No se ha seleccionado ningún archivo";
+      });
+    }
+  </script>
+</body>
+
+</html>
