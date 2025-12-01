@@ -21,3 +21,11 @@ Opción de descarga en un archivo JSON para su análisis.
 # Entrenamiento del modelo
 El proceso de entrenamiento puede verse observado en el archivo logicaModelo, así como en el archivo Datatonv2.2.ipnyb
 
+Para correr el sistema con la interfaz web en un servidor local, puede realizarse desde consola creando un entorno virtual dentro de la carpeta del proyecto con:
+    python -m venv venv
+y activarlo con:
+    .\venv\Scripts\Activate.ps1
+Posterior a la instalación de las dependencias especificadas en requirements.txt, se ejecuta el archivo app.py de la siguiente manera:
+   python app.py
+Si se desea acceder desde internet, visita el siguiente sitio: 
+https://luisaayon25.pythonanywhere.com/
